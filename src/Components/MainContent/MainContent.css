@@ -7,6 +7,10 @@
   font-family: 'Raleway', sans-serif;
 }
 
+p{
+  color: #FFF;
+}
+
 .block{
   width: 90%;
   max-width: 1400px;

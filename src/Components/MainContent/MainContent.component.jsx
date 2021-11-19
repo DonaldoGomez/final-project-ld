@@ -1,41 +1,48 @@
-import React, {useState, Fragment} from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import axios from 'axios';
 import "./MainContent.css";
 function MainContent(props) {
-   const [status, setStatus] = useState('idle');
-   const [response, setResponse] = useState();
-   // 'https://api.jikan.moe/v3/search/anime?q=dragonball'
+     const [response, setResponse] = useState();
+     useEffect(() => {
+          if (props.animeTitle) {
+               axios.get(`https://api.jikan.moe/v3/search/anime?q=${props.animeTitle}`).then((item) => {
+                    if (props.status === 'idle' || props.status === 'loading') {
+                         setResponse(item.data.results);
+                         props.setStatus('complete');
+                    }
+               }).catch((error) => {
+                    props.setStatus('error');
+                    console.log(error);
+               });
+          }
+     }, [props.animeTitle]);
 
-   axios.get('https://api.jikan.moe/v3/search/anime?q=naruto').then((item) => {
-      if (status === 'idle') {
-         setStatus('loading');
-         setResponse(item.data.results);
-         setStatus('complete');
-      }
-   }).catch((error) => {
-      console.log(error);
-   });
+     if (props.status === 'idle') {
+          return <p>Search for an anime</p>
+     }
+     if (props.status === 'loading') {
+          return <p>Loading</p>;
+     }
+     if (props.status === 'error') {
+          return <p>So sorry something went wrong</p>
+     }
 
-   if (status === 'idle' || status === 'loading') {
-      return <p>Loading</p>;
-   }
-
-   if (status === 'complete') {
-      return (
-         <Fragment>
-          <h1>Results</h1>
-          <section className="main-container block">
-             {response.map((item) => {
-                return (
-                    <div className="card" key={item.mal_id}>
-                         <div className="card-header">
-                              <h4 className="card-header-title"><b>{item.title}</b></h4>
-                         </div>
-                         <img className="card-img" src={item.image_url} alt={item.title}/>
-                         <div className="card-footer">
-                              <a href={item.url}>Review</a>
-                         </div>
-                         {/* <h2 className="title">{item.title}</h2>
+     if (props.status === 'complete') {
+          return (
+               <Fragment>
+                    <h1>Results</h1>
+                    <section className="main-container block">
+                         {response.map((item) => {
+                              return (
+                                   <div className="card" key={item.mal_id}>
+                                        <div className="card-header">
+                                             <h4 className="card-header-title"><b>{item.title}</b></h4>
+                                        </div>
+                                        <img className="card-img" src={item.image_url} alt={item.title} />
+                                        <div className="card-footer">
+                                             <a href={item.url}>Review</a>
+                                        </div>
+                                        {/* <h2 className="title">{item.title}</h2>
                               <div className="header-info">
                                    <h6 className="header-info-item">{item.rated}</h6>
                                    <h6 className="header-info-item">{item.episodes}</h6>
@@ -67,18 +74,18 @@ function MainContent(props) {
                                    <a href={item.url}>Check Review</a>
                                    <h3 className="extra-score">{item.score}</h3>
                               </div> */}
-                         {/* <div className="card-footer">
+                                        {/* <div className="card-footer">
                          </div> */}
-                   </div>);
-                // return (<li key={index}>{item}</li>);
-             })}
-          </section>
-         </Fragment>
-      );
-      // console.log(response[1].mal_id);
-   }
+                                   </div>);
+                              // return (<li key={index}>{item}</li>);
+                         })}
+                    </section>
+               </Fragment>
+          );
+          // console.log(response[1].mal_id);
+     }
 
-   return <p>Error 404 :(</p>
+     return <p>Error 404 :(</p>
 }
 
 export default MainContent;
