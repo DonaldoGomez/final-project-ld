@@ -1,8 +1,14 @@
-import React from 'react';
-import './SingleAnimePage.css'
+import React, { useEffect, useState } from 'react';
+import './SingleAnimePage.css';
 
 function SingleAnimePage(props){
-  return <h1>{props.match.params.title}</h1>
+  
+  useEffect(()=>{
+    console.log(props);
+      //SI viene de otro lado pedir petición a la api, si viene de la página principal usar props. TAMBIÉN PARA EL BOTÓN DE REGRESAR!!!!!!!!!!!!!!!!
+
+  },[]);
+  return <h1>Success!!!</h1>
 }
 
 export default SingleAnimePage;

@@ -3,7 +3,14 @@ import React, {useState, Fragment} from 'react';
 import {
   MainContent,
   SearchBar,
+  SingleAnimePage,
+  Carrousel,
 } from './Components'
+import {
+     BrowserRouter as Router,
+     Route,
+     Switch,
+} from 'react-router-dom';
 function App() {
   const [animeTitle,setAnimeTitle] = useState('');
   const [status,setStatus] = useState('idle');
@@ -20,35 +27,49 @@ function App() {
 
   return (
     <Fragment>
-      <SearchBar 
-        setAnimeTitle={setAnimeTitle} 
-        setStatus={setStatus}
-
-        setAnimeStatus={setAnimeStatus}
-        seType={seType}
-        setRated={setRated}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
-        setScore={setScore}
-        setOrderBy={setOrderBy}
-        setSort={setSort}
-        setLimit={setLimit}
-      />
-      <MainContent 
-        animeTitle={animeTitle} 
-        setStatus={setStatus} 
-        status={status}
-
-        animeStatus={animeStatus}
-        type={type}
-        rated={rated}
-        startDate={startDate}
-        endDate={endDate}
-        score={score}
-        orderBy={orderBy}
-        sort={sort}
-        limit={limit}
-      />
+      <Router>
+        <Switch>
+          <Route path="/:id" render={(routeProps)=>{
+            return <SingleAnimePage {...routeProps} />}}
+          />
+          <Route path="/" exact render={(routeProps)=>{
+            return (  
+            <Fragment>
+              <Carrousel/>
+              <SearchBar 
+                setAnimeTitle={setAnimeTitle} 
+                setStatus={setStatus}
+  
+                setAnimeStatus={setAnimeStatus}
+                seType={seType}
+                setRated={setRated}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+                setScore={setScore}
+                setOrderBy={setOrderBy}
+                setSort={setSort}
+                setLimit={setLimit}
+              />
+              <MainContent 
+                animeTitle={animeTitle} 
+                setStatus={setStatus} 
+                status={status}
+  
+                animeStatus={animeStatus}
+                type={type}
+                rated={rated}
+                startDate={startDate}
+                endDate={endDate}
+                score={score}
+                orderBy={orderBy}
+                sort={sort}
+                limit={limit}
+                {...routeProps}
+              />
+              </Fragment>);
+            }}/>
+        </Switch>
+      </Router>
     </Fragment> 
   );
 }

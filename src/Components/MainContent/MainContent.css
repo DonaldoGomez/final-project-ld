@@ -14,7 +14,7 @@ p{
 .block{
   width: 90%;
   max-width: 1400px;
-  padding: 10vh 0;
+  padding: 5vh 0;
   margin: auto;
 }
 
@@ -86,11 +86,12 @@ p{
   background: linear-gradient(0deg, #222C,#4449,#5550);
 }
 
-.card-footer a{
+.card-footer-button{
   color: #FFF;
   background-color: #B40803;
   padding: 8px 12px;
   border-radius: 5px;
+  border: none;
   text-decoration: none;
   font-weight: 700;
   -webkit-border-radius: 5px;
