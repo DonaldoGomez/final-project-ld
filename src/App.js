@@ -4,7 +4,7 @@ import {
   MainContent,
   SearchBar,
   SingleAnimePage,
-  Carrousel,
+  Header,
 } from './Components'
 import {
      BrowserRouter as Router,
@@ -35,7 +35,7 @@ function App() {
           <Route path="/" exact render={(routeProps)=>{
             return (  
             <Fragment>
-              <Carrousel/>
+              <Header/>
               <SearchBar 
                 setAnimeTitle={setAnimeTitle} 
                 setStatus={setStatus}

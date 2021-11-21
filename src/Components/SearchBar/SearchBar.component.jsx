@@ -123,7 +123,7 @@ function SearchBar(props) {
               type="text"
               id="anime-title"
               placeholder="Search for an anime"
-              autocomplete="off"
+              autoComplete="off"
               ref={titleInputRef}
               onInput={onInputTitle}
             />
@@ -223,7 +223,7 @@ function SearchBar(props) {
           </div>
         </fieldset>
       </form>
-      <button className="show-form-button" onClick={showFilters} ref={arrowButton}><i class='bx bxs-chevron-down chevron'></i></button>
+      <button className="show-form-button" onClick={showFilters} ref={arrowButton}><i className='bx bxs-chevron-down chevron'></i></button>
     </section>
   );
 }

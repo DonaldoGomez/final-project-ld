@@ -1,13 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import "./MainContent.css";
-// import { SingleAnimePage } from '../../Components';
-// import {
-//    BrowserRouter as Router,
-//    Routes,
-//    Route,
-//    NavLink,
-// } from 'react-router-dom';
 
 function MainContent(props) {
    const [response, setResponse] = useState();
@@ -25,22 +18,22 @@ function MainContent(props) {
    }
 
    useEffect(() => {
-      // let url = `https://api.jikan.moe/v3/search/anime?q=${props.animeTitle}${props.type}${props.animeStatus}${props.rated}&genre=12&genre_exclude=1${props.startDate}${props.endDate}${props.score}${props.orderBy}${props.sort}${props.limit}`;
-      // console.log(url);
-      // // axios.get(`https://api.jikan.moe/v3/search/anime?q=${props.animeTitle}`).
-      // axios.get(url).then((item) => {
-      //    if (props.status === 'idle' || props.status === 'loading') {
-      //     setResponse(item.data.results);
-      //     props.setStatus('complete');
-      //    }
-      // }).catch((error) => {
-      //    if (error === '503')
-      //     props.setStatus('unavailable');
-      //    else if (error === '404')
-      //     props.setStatus('not-found');
-      //    else
-      //     props.setStatus('error');
-      // });
+      let url = `https://api.jikan.moe/v3/search/anime?q=${props.animeTitle}${props.type}${props.animeStatus}${props.rated}&genre=12&genre_exclude=1${props.startDate}${props.endDate}${props.score}${props.orderBy}${props.sort}${props.limit}`;
+      console.log(url);
+      // axios.get(`https://api.jikan.moe/v3/search/anime?q=${props.animeTitle}`).
+      axios.get(url).then((item) => {
+         if (props.status === 'idle' || props.status === 'loading') {
+          setResponse(item.data.results);
+          props.setStatus('complete');
+         }
+      }).catch((error) => {
+         if (error === '503')
+          props.setStatus('unavailable');
+         else if (error === '404')
+          props.setStatus('not-found');
+         else
+          props.setStatus('error');
+      });
    }, [props.status]);
 
    if (props.status === 'idle') {
@@ -62,7 +55,7 @@ function MainContent(props) {
       return (
          <Fragment>
           <h1>Results</h1>
-          <section className="main-container block">
+          <main className="main-container block">
              {response.map((item) => {
                 return (
                     <div className="card" key={item.mal_id}>
@@ -77,7 +70,7 @@ function MainContent(props) {
                        </div>
                     </div>);
              })}
-          </section>
+          </main>
          </Fragment>
       );
    }

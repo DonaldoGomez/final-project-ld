@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.header{
+  width: 100%;
+  /* height: 100vh; */
+  height: calc(var(--vh,1vh) * 100);
+  position: relative;
+  top: 0;
+}
+
+.nav{
+  height: 13vh;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 400;
+  top: 0;
+  justify-content: space-between;
+}
+
+.header-logo{
+  padding: 5px;
+  object-fit: contain;
+  object-position: 15%;
+  width: 45%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  width: 54%;
+}
+
+.header-button{
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFF;
+  transition: color .3s ease-in-out;
+  -webkit-transition: color .3s ease-in-out;
+  -moz-transition: color .3s ease-in-out;
+  -ms-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
+  cursor: pointer;
+}
+
+.header-button:hover{
+  color: #BBB;
+}
+
+.title-content{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  background-image: linear-gradient(to top, #ff084477 0%, #ffb19966 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;  
+}
+
+.video-header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  object-fit: cover;
+  object-position: center;
+  z-index: 200;
+}
+
+.title-content{
+  padding: 0 10%;
+}
+
+.header-title{
+  font-size: 7rem;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Noto Serif JP', serif;
+} 
+
+.header-subtitle{
+  font-size: 1.1rem;
+  text-align: center;
+  color: #FFF;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.title-button{
+  background-color: #555;
+  padding: .7rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #FFF;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px){
+  .nav{
+    display: none;
+  }
+  .header-title{
+    font-size: 6rem;
+  } 
+  
+  .header-subtitle{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .header-title{
+    font-size: 5rem;
+  } 
+  
+  .header-subtitle{
+    font-size: .8rem;
+  }
+}
