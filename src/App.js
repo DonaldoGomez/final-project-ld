@@ -1,10 +1,11 @@
 import './App.css';
 import React, {useState, Fragment} from 'react';
 import {
-  MainContent,
-  SearchBar,
-  SingleAnimePage,
   Header,
+  SearchBar,
+  MainContent,
+  SingleAnimePage,
+  Footer,
 } from './Components'
 import {
      BrowserRouter as Router,
@@ -29,12 +30,12 @@ function App() {
     <Fragment>
       <Router>
         <Switch>
-          {/* <Route path="/:id" render={(routeProps)=>{
+          <Route path="/:id" render={(routeProps)=>{
+            return <SingleAnimePage {...routeProps} setStatus={setStatus}/>}}
+          />
+          {/* <Route path="/anime" render={(routeProps)=>{
             return <SingleAnimePage {...routeProps} />}}
           /> */}
-          <Route path="/anime" render={(routeProps)=>{
-            return <SingleAnimePage {...routeProps} />}}
-          />
           <Route path="/" exact render={(routeProps)=>{
             return (  
             <Fragment>
@@ -69,6 +70,7 @@ function App() {
                 limit={limit}
                 {...routeProps}
               />
+              <Footer/>
               </Fragment>);
             }}/>
         </Switch>

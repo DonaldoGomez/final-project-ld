@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './SearchBar.css';
-import 'boxicons/css/boxicons.min.css'
+import 'boxicons/css/boxicons.min.css';
 
 function SearchBar(props) {
   const titleInputRef = useRef();

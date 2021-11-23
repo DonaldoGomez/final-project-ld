@@ -124,13 +124,9 @@
   border: none;
   padding: 7px;
   color: #FFF;
-  background-color: #6f6d83;
+  background-color: #2E2B37;
+  border-bottom: 2px solid #B40803;
   height: 2rem;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
 }
 
 .form-fieldset-input select:focus,.form-fieldset-input input:focus{

@@ -1,12 +1,214 @@
 .single-page-main{
   width: 100%;
+  height: 100vh;
   display: flex;
+  flex-wrap: wrap;
+  color: #DFDFDF;
+  background-image: linear-gradient(180deg, #5E6E6C, #1D1A26);
 }
 
-.single-image-container{
+.single-img-container{
   width: 30%;
-  height: calc(var(--vh,1vh) * 100);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: radial-gradient(circle at top left, #fdbb2d00, #2227,#111D),url(https://clarovideocdn1.clarovideo.net/PELICULAS/INTERSTELLAR/EXPORTACION_WEB/SS/INTERSTELLARWVERTICAL.jpg?size=200x300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5%;
+}
+
+.single-img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: 11px 16px 34px 3px rgba(23,22,23,1);
+  box-shadow: 11px 16px 34px 3px rgba(23,22,23,1);
+
+}
+
+.single-logo{
+  object-fit: contain;
+  width: 15%;
+  align-self: center;
+}
+
+.single-info-container{
+  width: 65%;
+  padding: 4% 2%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 5vh;
+}
+
+.title-container{
+  display: flex;
+  margin-top: 3vh;
+}
+
+.single-title{
+  font-size: 3rem;
+  width: 90%;
+}
+
+.single-airing{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: auto;
+  align-self: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.single-statistics-container{
+  display: flex;
+  display: flex-wrap;
+  gap: .5rem;
+  font-weight: 100;
+  margin-top: 1vh;
+}
+
+.single-statistics-item{
+  border: 1px solid #EEE;
+  padding: 5px 7px;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.single-date-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 6vh;
+  justify-content: space-around;
+}
+
+.single-text{
+  font-size: 1.2rem;
+}
+
+.single-text-container{
+  margin-top: 3vh;
+}
+
+.score-container{
+  margin-top: 4vh;
+  align-self: center;
+}
+
+.score-title{
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.score-score{
+  text-align: center;
+  margin-top: 3vh;
+  font-size: 5rem;
+}
+
+.back-button{
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  padding: .3rem;
+  background-color: #FFF;
+  color: #606060;
+  border: 2px solid #222;
+  font-size: 2.3rem;
+  display: flex;
+  margin: auto;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: color .3s ease-in-out, background-color .3s ease-in-out;
+  -webkit-transition: color .3s ease-in-out, background-color .3s ease-in-out;
+  -moz-transition: color .3s ease-in-out, background-color .3s ease-in-out;
+  -ms-transition: color .3s ease-in-out, background-color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+
+.back-button:hover{
+  color:#FFF;
+  background-color: #B40803;
+}
+
+@media screen and (max-width: 900px){
+  .single-img-container{
+    width: 40%;
+  }
+  .single-info-container{
+    width: 58%;
+  }
+  
+  .single-title{
+    font-size: 2.5rem;
+  }
+
+  .score-title{
+    font-size: 2rem;
+  }
+
+  .score-score{
+    font-size: 4.3rem;
+  }
+
+  .single-text{
+    font-size: .9rem;
+  }
+
+}
+
+@media screen and (max-width: 700px){
+  .single-page-main{
+    height: calc(var(--vh,1vh) * 100);
+    background-color: tomato;
+  }
+  .single-img-container{
+    padding: 10% 25%;
+    width: 100%;
+  }
+  .single-info-container{
+    width: 100%;
+  }
+  .single-title{
+    font-size: 1.7rem;
+  }
+
+  .score-title{
+    font-size: 1.2rem;
+  }
+
+  .score-score{
+    font-size: 3rem;
+  }
+
+  .single-text{
+    font-size: .8rem;
+  }
+}
+
+@keyframes onAir{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
 }
