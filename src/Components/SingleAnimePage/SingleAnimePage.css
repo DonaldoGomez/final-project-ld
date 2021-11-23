@@ -1,0 +1,12 @@
+.single-page-main{
+  width: 100%;
+  display: flex;
+}
+
+.single-image-container{
+  width: 30%;
+  height: calc(var(--vh,1vh) * 100);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(circle at top left, #fdbb2d00, #2227,#111D),url(https://clarovideocdn1.clarovideo.net/PELICULAS/INTERSTELLAR/EXPORTACION_WEB/SS/INTERSTELLARWVERTICAL.jpg?size=200x300);
+}

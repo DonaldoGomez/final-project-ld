@@ -29,7 +29,10 @@ function App() {
     <Fragment>
       <Router>
         <Switch>
-          <Route path="/:id" render={(routeProps)=>{
+          {/* <Route path="/:id" render={(routeProps)=>{
+            return <SingleAnimePage {...routeProps} />}}
+          /> */}
+          <Route path="/anime" render={(routeProps)=>{
             return <SingleAnimePage {...routeProps} />}}
           />
           <Route path="/" exact render={(routeProps)=>{
